@@ -18,6 +18,12 @@ public class UsersController : ControllerBase
     [HttpGet]
     public IActionResult GetAll() => Ok(_service.GetAll());
 
+    [HttpGet("error")]
+    public void Error()
+    {
+        throw new Exception("Boom!");
+    }
+
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
