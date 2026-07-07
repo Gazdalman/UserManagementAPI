@@ -1,4 +1,5 @@
 using UserManagementAPI.Services;
+using UserManagementAPI.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<ValidationMiddleware>();
 app.MapControllers();
 
 app.Run();
